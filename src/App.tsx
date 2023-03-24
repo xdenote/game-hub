@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import {ChakraProvider, Grid, GridItem, Show} from '@chakra-ui/react'
+import {ChakraProvider, ColorModeScript, Grid, GridItem, Show} from '@chakra-ui/react'
 import NavBar from "./components/NavBar";
+import theme from "./theme";
 
 function App() {
     return (
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
+            <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
             <Grid
                 templateAreas={{
                     base: `"nav" "main"`,
