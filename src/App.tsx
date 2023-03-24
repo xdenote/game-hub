@@ -1,14 +1,24 @@
 import React from 'react';
 import './App.css';
-import { ChakraProvider } from '@chakra-ui/react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import {ChakraProvider, Grid, GridItem, Show} from '@chakra-ui/react'
 
 function App() {
-  return (
-      <ChakraProvider>
-          <Button colorScheme='blue'>Button</Button>
-      </ChakraProvider>
-  );
+    return (
+        <ChakraProvider>
+            <Grid
+                templateAreas={{
+                    base: `"nav" "main"`,
+                    lg: `"nav nav" "aside main"`,
+                }}
+            >
+                <GridItem area="nav" bg="lightcoral">Nav</GridItem>
+                <Show above="lg">
+                    <GridItem area="aside" bg="gold">Aside</GridItem>
+                </Show>
+                <GridItem area="main" bg="dodgerblue">Main</GridItem>
+            </Grid>
+        </ChakraProvider>
+    );
 }
 
 export default App;
